@@ -1,0 +1,69 @@
+body { 
+   background-image: url("../images/background-3.jpg");
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.container {
+    float: left;
+    background-image: url("../images/background2.jpg");
+    width: 1200px;
+}
+
+.gameName {
+    width: 500px;
+    height: 100px;
+    margin: auto;
+}
+
+.instructions {
+    font-size: 25px;
+    height: 300px;
+    width: 800px;
+    background-color: aquamarine;
+
+
+}
+
+.crystals, .scoreZone {
+    height: 200px;
+    width: 900px;
+
+}
+.gemimg {
+    height: 150px;
+    width: 200px;
+    margin: 20px, 5px, 20px, 5px;
+}
+
+.scoreZone {
+   /* border: 10px;
+   border-color: darkblue; */
+
+}
+.computerNumberText, .myScoreTitle, .runningTotal, .tally {
+    height: 150px;
+    width: 350px;
+    background-color: coral;
+    margin: 20px;
+    float: left;
+
+}
+
+.myScoreTitle {
+    height: 50px;
+    background-color: rgb(57, 160, 160);
+    margin: 10px;
+    float: none;
+    
+
+}
+
+.runningTotal {
+    background-color: rgb(57, 160, 160);
+    margin: 10px;
+    float: none;
+
+
+}
+
+
