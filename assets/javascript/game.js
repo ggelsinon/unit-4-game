@@ -38,7 +38,7 @@ var crystalObj = [
 //a number needs to be assigned to each crystal object at start of game
 for (var i = 0; i < crystalObj.length; i++) {
     crystalObj[i].value = Math.floor(Math.random() * 13);
-    
+    var img = $('<img>').attr('src', crystalObj[i].image),
     $(div).append(img)
     
     $("#crystal")
