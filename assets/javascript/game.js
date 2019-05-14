@@ -3,64 +3,88 @@
 
 //Game start events
 // player is shown a random number between 19-120
-var computerGuess = 0;
 
-var aCrystalNum = 0;
-var bCrystalNum = 0;
-var cCrystalNum = 0;
-var dCrystalNum = 0;
-
+// global vars
+var computerNumber = 0;
 var playerSum = 0;
-
-// vars for displaying information
-var winsText = document.getElementById("winsText");
-var lossesText = document.getElementById("lossesText");
-var runningTotal = document.getElementById("runningTotalTexts");
-var computerNum = document.getElementById("computerNumberText");
+var wins = 0
+var losses = 0
 
 
+var crystalObj = [
+    {
+        name: "red",
+        value: 0,
+        image: "assets/images/redcrystal.png",
+    },
+    {
+        name: "blue",
+        value: 0,
+        image: "assets/images/bluecrystal.png",
+    },
+    {
+        name: "green",
+        value: 0,
+        image: "assets/images/greencrystal.png",
+    }
+    {
+        name: "yellow",
+        value: 0,
+        image: "assets/images/yellowcrystal.png",
+    }
+];
 
-$("#start").on("click", function() {
-// player is shown a random number between 19-120
-    computerNum = Math.floor(Math.random() * 121);
-    console.log(computerNum);
 
-//a number needs to be assigned to each crystal at start of game
-    rCrystalNum = Math.floor(Math.random() * 13);
-    bCrystalNum = Math.floor(Math.random() * 13);
-    yCrystalNum = Math.floor(Math.random() * 13);
-    gCrystalNum = Math.floor(Math.random() * 13);
+//a number needs to be assigned to each crystal object at start of game
+for (var i = 0; i < crystalObj.length; i++) {
+    crystalObj[i].value = Math.floor(Math.random() * 13);
+    
+    $(div).append(img)
+    
+    $("#crystal")
+}
 
-    computerNum.textContent = computerNum
 
+// an event initiates the game
+$("#start").on("click", function () {
+    // player is shown a random number between 19-120
+    computerNumber = Math.floor(Math.random() * 121); // generate number
+    console.log(computerNumber); //display number
+    // computerNumberText.textContent = "Number to Match: " + computerNumber;
+    
 }
 
 
 )
-$(".crystal").on("click", function() {
-    $(this.dataNum)
-}
 
-)
+$("#crystal").on("click", function () {
+    // $(this.dataNum)
+    alert("hit it")
 
+
+})
 // jquery .attr
 
+// add crystal value to players running total
+
+var computerNumber = playerSum + crystalNum
 
 //if players total matches the number given then the game ends by
-var playerSum = 0;
-
+for (var playerSum = 0;
+    
     //adding a win to their tally
-
+    
     //number tally resets
-
+    
     //new random number generated
-
-// if player's total exceeds random number shown the game ends
-
+    
+    // if player's total exceeds random number shown the game ends
+    
     //number tally resets
-
+    
     //new random number generated
-
+    
     //add one to the loss tally
-
-// if players total is less than the random number then play continues
+    
+    // if players total is less than the random number then play continues
+    

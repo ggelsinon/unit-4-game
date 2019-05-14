@@ -40,7 +40,7 @@ body {
    border-color: darkblue; */
 
 }
-.computerNumberText, .myScoreTitle, .runningTotal, .tally {
+.computerNum, .myScoreTitle, .runningTotal, .tally {
     height: 150px;
     width: 350px;
     background-color: coral;
