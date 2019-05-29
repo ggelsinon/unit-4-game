@@ -51,15 +51,15 @@ body {
 
 .myScoreTitle {
     height: 50px;
-    background-color: rgb(57, 160, 160);
+    width: 700px;
+    background-color: rgb(76, 156, 221);
     margin: 10px;
     float: none;
-    
 
 }
 
 .runningTotal {
-    background-color: rgb(57, 160, 160);
+    background-color: rgb(76, 156, 221);
     margin: 10px;
     float: none;
 
