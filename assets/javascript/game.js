@@ -40,6 +40,7 @@ var winLossCheck = function () {
         winzo = true;
         donzo = true;
     }
+    
 }
 
 var setCrystals = function () {
@@ -56,8 +57,11 @@ var resetGame = function () {
     donzo = false;
     winzo = false;
     // crystalObj[i].value = 0;
-    $("#crystals").empty;
+    $("#crystals").empty();
     // setCrystals();
+    $("#computerNumText").html(computerNumber);
+    $("#runningTotalText").html(playerSum);
+    
 }
 
 $("#winsText").html("Wins: " + wins);
@@ -70,22 +74,25 @@ $("#start").on("click", function () {
     setCrystals();
 
     $(".gemimg").on("click", function () {
-        winLossCheck()
-        if ((donzo = true) && (winzo = true)) {
+        
+        if ((donzo === true) && (winzo === true)) {
             wins += 1;
+            $("#winsText").html("Wins: " + wins);
+            alert("You Win!");
             resetGame();
-            alert("You Win!")
 
-        } else if ((donzo = true) && (winzo = false)) {
+        } else if ((donzo === true) && (winzo === false)) {
             losses += 1;
+            $("#lossesText").html("Losses: " + losses);
+            alert("Uh Oh! You lost!");
             resetGame();
-            alert("Uh Oh! You lost!")
 
         } else {
             var crysvalue = $(this)[0].dataset.num;
             playerSum += parseInt(crysvalue);
             $("#runningTotalText").html("Player total: " + playerSum);
         }
+        winLossCheck()
     })
 
 })
