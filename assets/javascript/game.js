@@ -40,19 +40,25 @@ var winLossCheck = function () {
         winzo = true;
         donzo = true;
     }
+}
+
+var updateNums = function () {
+    $("#runningTotalText").html("Player total: " + playerSum);
     if ((donzo === true) && (winzo === true)) {
+        $("#runningTotalText").html("Player total: " + playerSum);
         wins += 1;
         $("#winsText").html("Wins: " + wins);
         alert("You Win!");
         resetGame();
-
     } else if ((donzo === true) && (winzo === false)) {
+        $("#runningTotalText").html("Player total: " + playerSum);
         losses += 1;
         $("#lossesText").html("Losses: " + losses);
         alert("Uh Oh! You lost!");
         resetGame();
     }
 }
+
 
     var setCrystals = function () {
         for (var i = 0; i < crystalObj.length; i++) {
@@ -72,7 +78,6 @@ var winLossCheck = function () {
         // setCrystals();
         $("#computerNumText").html(computerNumber);
         $("#runningTotalText").html(playerSum);
-
     }
 
     $("#winsText").html("Wins: " + wins);
@@ -85,27 +90,11 @@ var winLossCheck = function () {
         setCrystals();
 
         $(".gemimg").on("click", function () {
-
-            if ((donzo === true) && (winzo === true)) {
-                wins += 1;
-                $("#winsText").html("Wins: " + wins);
-                alert("You Win!");
-                resetGame();
-
-            } else if ((donzo === true) && (winzo === false)) {
-                losses += 1;
-                $("#lossesText").html("Losses: " + losses);
-                alert("Uh Oh! You lost!");
-                resetGame();
-
-            } else {
-                var crysvalue = $(this)[0].dataset.num;
-                playerSum += parseInt(crysvalue);
-                $("#runningTotalText").html("Player total: " + playerSum);
-                winLossCheck();
-            }
-
-        })
-
+            console.log("gem click is working");
+            var crysvalue = $(this)[0].dataset.num;
+            playerSum += parseInt(crysvalue);
+            updateNums();
+            winLossCheck();
+            updateNums();
+        });
     })
-
