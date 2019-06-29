@@ -33,52 +33,55 @@ var rando = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+var setCrystals = function () {
+    for (var i = 0; i < crystalObj.length; i++) {
+        crystalObj[i].value = rando(1, 12);
+        var img = $("<img>").attr('src', crystalObj[i].image).attr("id", "crystals" + (i + 1)).attr("data-index", i).addClass("gemimg button").attr("data-num", crystalObj[i].value);
+        $("#crystals").append(img);
+    }
+}
+var updatePlaySum = function (){
+    $("#runningTotalText").html("Player total: " + playerSum);
+}
+
 var winLossCheck = function () {
     if (playerSum > computerNumber) {
         donzo = true;
+        updatePlaySum();
     } else if (playerSum === computerNumber) {
         winzo = true;
         donzo = true;
+        updatePlaySum();
     }
 }
 
+var resetGame = function () {
+
+    computerNumber = 0;
+    playerSum = 0;
+    donzo = false;
+    winzo = false;
+    // crystalObj[i].value = 0;
+    $("#crystals").empty();
+    // setCrystals();
+    $("#computerNumText").html(computerNumber);
+    $("#runningTotalText").html(playerSum);
+}
+
+
 var updateNums = function () {
-    $("#runningTotalText").html("Player total: " + playerSum);
     if ((donzo === true) && (winzo === true)) {
-        $("#runningTotalText").html("Player total: " + playerSum);
         wins += 1;
         $("#winsText").html("Wins: " + wins);
         alert("You Win!");
         resetGame();
     } else if ((donzo === true) && (winzo === false)) {
-        $("#runningTotalText").html("Player total: " + playerSum);
         losses += 1;
         $("#lossesText").html("Losses: " + losses);
         alert("Uh Oh! You lost!");
         resetGame();
     }
 }
-
-
-    var setCrystals = function () {
-        for (var i = 0; i < crystalObj.length; i++) {
-            crystalObj[i].value = rando(1, 12);
-            var img = $("<img>").attr('src', crystalObj[i].image).attr("id", "crystals" + (i + 1)).attr("data-index", i).addClass("gemimg button").attr("data-num", crystalObj[i].value);
-            $("#crystals").append(img);
-        }
-    }
-
-    var resetGame = function () {
-        computerNumber = 0;
-        playerSum = 0;
-        donzo = false;
-        winzo = false;
-        // crystalObj[i].value = 0;
-        $("#crystals").empty();
-        // setCrystals();
-        $("#computerNumText").html(computerNumber);
-        $("#runningTotalText").html(playerSum);
-    }
 
     $("#winsText").html("Wins: " + wins);
     $("#lossesText").html("Losses: " + losses);
@@ -93,7 +96,7 @@ var updateNums = function () {
             console.log("gem click is working");
             var crysvalue = $(this)[0].dataset.num;
             playerSum += parseInt(crysvalue);
-            updateNums();
+            updatePlaySum ();
             winLossCheck();
             updateNums();
         });
