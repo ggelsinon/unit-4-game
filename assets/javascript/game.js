@@ -64,6 +64,7 @@ var resetGame = function () {
     playerSum = 0;
     donzo = false;
     winzo = false;
+    gameInProgress = false;
     // crystalObj[i].value = 0;
     $("#crystals").empty();
     // setCrystals();
