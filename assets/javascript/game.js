@@ -5,6 +5,8 @@ var wins = 0;
 var losses = 0;
 var donzo = false;
 var winzo = false;
+var gameInProgress = false;
+
 
 var crystalObj = [
     {
@@ -39,6 +41,7 @@ var setCrystals = function () {
         var img = $("<img>").attr('src', crystalObj[i].image).attr("id", "crystals" + (i + 1)).attr("data-index", i).addClass("gemimg button").attr("data-num", crystalObj[i].value);
         $("#crystals").append(img);
     }
+    gameInProgress = true;
 }
 var updatePlaySum = function (){
     $("#runningTotalText").html("Player total: " + playerSum);
@@ -73,12 +76,14 @@ var updateNums = function () {
     if ((donzo === true) && (winzo === true)) {
         wins += 1;
         $("#winsText").html("Wins: " + wins);
-        alert("You Win!");
+        $("#runningTotalText").html("Player total: " + playerSum);
+        alert("Your final sum was " + playerSum + " which matches the Number to Match " + computerNumber + ", so YOU WIN!!!!");
         resetGame();
     } else if ((donzo === true) && (winzo === false)) {
         losses += 1;
+        $("#runningTotalText").html("Player total: " + playerSum);
         $("#lossesText").html("Losses: " + losses);
-        alert("Uh Oh! You lost!");
+        alert("Uh Oh! Your sum was " + playerSum + " which is more than the Number to Match " + computerNumber + ", so YOU LOST!!!");
         resetGame();
     }
 }
@@ -88,9 +93,14 @@ var updateNums = function () {
 
     $("#start").on("click", function () {
         console.log("start worked");
+        if(gameInProgress){
+            alert("finish the game in progress before pressing start key again");
+        } else {
         computerNumber = rando(19, 120);
         $("#computerNumText").html("Number to match: " + computerNumber);
         setCrystals();
+        }
+
 
         $(".gemimg").on("click", function () {
             console.log("gem click is working");
@@ -101,3 +111,4 @@ var updateNums = function () {
             updateNums();
         });
     })
+  
